@@ -9,12 +9,12 @@ const MatchSchema = mongoose.Schema({
   team1: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: ["team", "nationalTeam"],
+    ref: "team",
   },
   team2: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: ["team", "nationalTeam"],
+    ref: "team"
   },
   local: {
     type: String,

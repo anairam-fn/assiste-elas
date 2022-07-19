@@ -79,7 +79,7 @@ const deleteNationalTeam = async (req, res) => {
 
     const deletedNationalTeam = await NationalTeamSchema.findByIdAndDelete(id);
 
-    const message = `${deletedNationalTeam} had been successfully deleted!`;
+    const message = `${deletedNationalTeam} was successfully deleted`;
 
     res.status(200).json({ message });
   } catch (error) {

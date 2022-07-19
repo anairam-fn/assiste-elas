@@ -76,7 +76,7 @@ const deleteTeam = async (req, res) => {
 
     const deletedTeam = await TeamSchema.findByIdAndDelete(id);
 
-    const message = `${deletedTeam} had been successfully deleted!`;
+    const message = `${deletedTeam} was successfully deleted`;
 
     res.status(200).json({ message });
   } catch (error) {
