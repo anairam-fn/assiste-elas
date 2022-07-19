@@ -6,7 +6,7 @@ const db = require("./config/database");
 
 const teamsRoutes = require("./routes/teamsRoutes");
 const nationalTeamsRoutes = require("./routes/nationalTeamsRoutes");
-//const matchesRoutes = require("./routes/matchesRoutes");
+const matchesRoutes = require("./routes/matchesRoutes");
 
 db.connect();
 
@@ -15,6 +15,6 @@ app.use(express.json());
 
 app.use("/", teamsRoutes);
 app.use("/", nationalTeamsRoutes);
-//app.use("/matches", matchesRoutes);
+app.use("/", matchesRoutes);
 
 module.exports = app;
