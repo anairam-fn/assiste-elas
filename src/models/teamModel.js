@@ -13,6 +13,10 @@ const TeamSchema = mongoose.Schema({
 
   country: {
     type: String,
+  },
+
+  type: {
+    type: String,
     required: true
   }
 });

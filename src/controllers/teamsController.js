@@ -4,11 +4,12 @@ const TeamSchema = require("../models/teamModel");
 
 const createTeam = async (req, res) => {
   try {
-    const { name, country } = req.body;
+    const { name, country, type } = req.body;
 
     const newTeam = new TeamSchema({
       name,
       country,
+      type
     });
 
     const savedTeam = await newTeam.save();
@@ -20,11 +21,13 @@ const createTeam = async (req, res) => {
   }
 };
 
-// GET/teams -> lista todos os times
+// GET/teams -> lista times por type (club or national team)
 
 const getTeams = async (req, res) => {
   try {
-    const allTeams = await TeamSchema.find();
+    const { type } = req.query
+
+    const allTeams = await TeamSchema.find({ type: type});
 
     res.status(200).json(allTeams);
   } catch (error) {
@@ -51,11 +54,12 @@ const getTeamByName = async (req, res) => {
 
 const updateTeam = async (req, res) => {
   try {
-    const { name, country } = req.body;
+    const { name, country, type } = req.body;
 
     const team = await TeamSchema.findByIdAndUpdate(req.params.id, {
       name,
       country,
+      type
     });
 
     const updatedTeam = await TeamSchema.findById(req.params.id);
