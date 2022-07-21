@@ -4,8 +4,11 @@
 
 **ROTAS/ENDPOINTS**
 
-GET/teams -> lista times por tipo (clube ou seleção)
+AO CRIAR NOVAS ROTAS : npm run swagger-autogen
+
+GET/teams -> lista todos os times
 GET/team/name -> acessa um time pelo nome
+GET/teams/type  -> acessa times pelo tipo (clube ou seleção)
 
 GET/matches -> lista todas as partidas
 GET/matches/team -> lista partidas de um time específico
