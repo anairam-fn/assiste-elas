@@ -21,15 +21,28 @@ const createTeam = async (req, res) => {
   }
 };
 
-// GET/teams -> lista times por type (club or national team)
+// GET/teams -> lista todos os times 
 
 const getTeams = async (req, res) => {
   try {
-    const { type } = req.query
-
-    const allTeams = await TeamSchema.find({ type: type});
+    const allTeams = await TeamSchema.find();
 
     res.status(200).json(allTeams);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// GET/teams/type -> lista times por type (club or national team)
+
+const getTeamsByType = async (req, res) => {
+  try {
+    const { type } = req.query
+
+    const teams = await TeamSchema.find({ type: type});
+
+    res.status(200).json(teams);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
@@ -92,6 +105,7 @@ const deleteTeam = async (req, res) => {
 module.exports = {
   createTeam,
   getTeams,
+  getTeamsByType,
   getTeamByName,
   updateTeam,
   deleteTeam,
