@@ -16,6 +16,7 @@ GET/matches/day -> lista partidas do dia
 
 POST/login -> autorização de acesso ao banco de dados (TODOS ABAIXO IRÃO PRECISAR)
 POST/admin/create -> cria admin
+GET/admin -> lista todos os admins
 PATCH/admin/:id -> atualiza admin
 DELETE/admin/:id -> exclui admin
 
