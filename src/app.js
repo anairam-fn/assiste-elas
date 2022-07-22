@@ -10,6 +10,7 @@ const db = require("./config/database");
 const index = require("./routes/index");
 const teamsRoutes = require("./routes/teamsRoutes");
 const matchesRoutes = require("./routes/matchesRoutes");
+const adminRoutes = require("./routes/adminRoutes")
 
 db.connect();
 
@@ -28,6 +29,7 @@ app.use(function (req, res, next) {
 app.use("/", index);
 app.use("/", teamsRoutes);
 app.use("/", matchesRoutes);
+app.use("/", adminRoutes)
 app.use("/documentation", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 module.exports = app;
