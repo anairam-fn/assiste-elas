@@ -1,6 +1,8 @@
 const MatchSchema = require("../models/matchModel");
 const TeamSchema = require("../models/teamModel");
 
+const moment = require("moment");
+
 // POST/match -> criar nova partida
 
 const createMatch = async (req, res) => {
@@ -52,30 +54,23 @@ const getAllMatches = async (req, res) => {
   }
 };
 
-// GET/matches/team -> lista partidas de um time específico (escolhe seleção ou clube)
+// GET/matches/team -> lista partidas de um time específico
 
 const getMatchByTeam = async (req, res) => {
   try {
-    const { name, type } = req.query;
+    const { name } = req.query;
 
     const matchesPopulated = await MatchSchema.find()
       .populate("team1")
       .populate("team2");
 
-    const typeFound = await matchesPopulated.filter(
-      (match) =>
-        match.team1.type.toLowerCase() === type ||
-        match.team2.type.toLowerCase() === type
-    );
-    console.log(typeFound);
-
-    const teamFound = await typeFound.filter(
+    const teamFound = await matchesPopulated.filter(
       (match) =>
         match.team1.name.toLowerCase() === name ||
         match.team2.name.toLowerCase() === name
     );
 
-    if (!teamFound[0]) {
+    if (!teamFound.length) {
       return res.status(404).json({ message: "Match not found!" });
     }
 
@@ -90,25 +85,35 @@ const getMatchByTeam = async (req, res) => {
 
 const matchesByDay = async (req, res) => {
   try {
-    const { date } = req.query
+    const { date } = req.query;
 
-    const match = await MatchSchema.find({ date: date })
+    const match = await MatchSchema.find({ date: date });
 
-    res.status(200).json(match)
+    const matchFound = match.filter(
+      (match) => moment(match.date).add(1, "days").format("YYYY-MM-DD") == date
+    );
+
+    if (!matchFound.length) {
+      return res
+        .status(404)
+        .json({ message: "There are no matches that day!" });
+    }
+
+    res.status(200).json(match);
   } catch (error) {
-    console.error(error)
-    res.status(500).json({ message: error.message })
+    console.error(error);
+    res.status(500).json({ message: error.message });
   }
-}
+};
 
 // PATCH/match/:id -> atualiza dados de uma partida
 
 const updateMatch = async (req, res) => {
   try {
     const { team1Id, team2Id, local, date, time, type, streaming } = req.body;
-    const { id } = req.params
+    const { id } = req.params;
 
-    const match = await MatchSchema.findByIdAndUpdate(id, {
+    await MatchSchema.findByIdAndUpdate(id, {
       team1Id,
       team2Id,
       local,
@@ -121,8 +126,6 @@ const updateMatch = async (req, res) => {
     const updatedMatch = await MatchSchema.findById(req.params.id)
       .populate("team1")
       .populate("team2");
-
-    //const message = `${match} updated to ${updatedMatch}`;
 
     res.status(200).json(updatedMatch);
   } catch (error) {
