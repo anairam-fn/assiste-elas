@@ -1,38 +1,57 @@
 const MatchSchema = require("../models/matchModel");
 const TeamSchema = require("../models/teamModel");
-
 const moment = require("moment");
+const jwt = require("jsonwebtoken");
+const SECRET = process.env.SECRET;
 
-// POST/match -> criar nova partida
+const auth = (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).json("Missing authorization!");
+  }
+  const token = authHeader.split(" ")[1];
+  return token;
+};
+
+// POST/match -> criar nova partida AUTH
 
 const createMatch = async (req, res) => {
   try {
-    const { team1Id, team2Id, local, date, time, type, streaming } = req.body;
+    const token = auth(req, res);
 
-    if (!team1Id || !team2Id) {
-      return res.status(400).json({ message: "Teams IDs are required!" });
-    }
+    await jwt.verify(token, SECRET, async (error) => {
+      if (error) {
+        return res.status(403).json("Invalid Token!");
+      }
 
-    const findTeam1 = await TeamSchema.findById(team1Id);
-    const findTeam2 = await TeamSchema.findById(team2Id);
+      const { team1Id, team2Id, local, date, time, type, streaming } = req.body;
 
-    if (!findTeam1 || !findTeam2) {
-      return res.status(404).json({ message: "Team not found!" });
-    }
+      if (!team1Id || !team2Id) {
+        return res.status(400).json({ message: "Teams IDs are required!" });
+      }
 
-    const newMatch = new MatchSchema({
-      team1: team1Id,
-      team2: team2Id,
-      local,
-      date,
-      time,
-      type,
-      streaming,
+      const findTeam1 = await TeamSchema.findById(team1Id);
+      const findTeam2 = await TeamSchema.findById(team2Id);
+
+      if (!findTeam1 || !findTeam2) {
+        return res.status(404).json({ message: "Team not found!" });
+      }
+
+      const newMatch = new MatchSchema({
+        team1: team1Id,
+        team2: team2Id,
+        local,
+        date,
+        time,
+        type,
+        streaming,
+      });
+
+      const savedMatch = await newMatch.save();
+
+      res.status(201).json(savedMatch);
     });
-
-    const savedMatch = await newMatch.save();
-
-    res.status(201).json(savedMatch);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
@@ -106,45 +125,61 @@ const matchesByDay = async (req, res) => {
   }
 };
 
-// PATCH/match/:id -> atualiza dados de uma partida
+// PATCH/match/:id -> atualiza dados de uma partida AUTH
 
 const updateMatch = async (req, res) => {
   try {
-    const { team1Id, team2Id, local, date, time, type, streaming } = req.body;
-    const { id } = req.params;
+    const token = auth(req, res);
 
-    await MatchSchema.findByIdAndUpdate(id, {
-      team1Id,
-      team2Id,
-      local,
-      date,
-      time,
-      type,
-      streaming,
+    await jwt.verify(token, SECRET, async (error) => {
+      if (error) {
+        return res.status(403).json("Invalid Token!");
+      }
+
+      const { team1Id, team2Id, local, date, time, type, streaming } = req.body;
+      const { id } = req.params;
+
+      await MatchSchema.findByIdAndUpdate(id, {
+        team1Id,
+        team2Id,
+        local,
+        date,
+        time,
+        type,
+        streaming,
+      });
+
+      const updatedMatch = await MatchSchema.findById(req.params.id)
+        .populate("team1")
+        .populate("team2");
+
+      res.status(200).json(updatedMatch);
     });
-
-    const updatedMatch = await MatchSchema.findById(req.params.id)
-      .populate("team1")
-      .populate("team2");
-
-    res.status(200).json(updatedMatch);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
 };
 
-// DELETE/match/:id -> exclui partida por id (excluir partida por data? serase)
+// DELETE/match/:id -> exclui partida por id (excluir partida por data? serase) AUTH
 
 const deleteMatch = async (req, res) => {
   try {
-    const { id } = req.params;
+    const token = auth(req, res);
 
-    const deletedMatch = await MatchSchema.findByIdAndDelete(id);
+    await jwt.verify(token, SECRET, async (error) => {
+      if (error) {
+        return res.status(403).json("Invalid Token!");
+      }
 
-    const message = `${deletedMatch} was successfully deleted`;
+      const { id } = req.params;
 
-    res.status(200).json({ message });
+      const deletedMatch = await MatchSchema.findByIdAndDelete(id);
+
+      const message = `${deletedMatch} was successfully deleted`;
+
+      res.status(200).json({ message });
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });

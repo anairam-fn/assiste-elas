@@ -1,27 +1,47 @@
 const TeamSchema = require("../models/teamModel");
+const jwt = require("jsonwebtoken");
+const SECRET = process.env.SECRET;
 
-// POST/team -> criar novo time
+const auth = (req, res) => {
+  const authHeader = req.get("authorization");
+
+  if (!authHeader) {
+    return res.status(401).json("Missing authorization!");
+  }
+  const token = authHeader.split(" ")[1];
+  return token;
+};
+
+// POST/team -> criar novo time AUTH
 
 const createTeam = async (req, res) => {
   try {
-    const { name, country, type } = req.body;
+    const token = auth(req, res);
 
-    const newTeam = new TeamSchema({
-      name,
-      country,
-      type
+    await jwt.verify(token, SECRET, async (error) => {
+      if (error) {
+        return res.status(403).json("Invalid Token!");
+      }
+
+      const { name, country, type } = req.body;
+
+      const newTeam = await new TeamSchema({
+        name,
+        country,
+        type,
+      });
+
+      const savedTeam = await newTeam.save();
+
+      res.status(201).json(savedTeam);
     });
-
-    const savedTeam = await newTeam.save();
-
-    res.status(201).json(savedTeam);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
 };
 
-// GET/teams -> lista todos os times 
+// GET/teams -> lista todos os times
 
 const getTeams = async (req, res) => {
   try {
@@ -38,9 +58,9 @@ const getTeams = async (req, res) => {
 
 const getTeamsByType = async (req, res) => {
   try {
-    const { type } = req.query
+    const { type } = req.query;
 
-    const teams = await TeamSchema.find({ type: type});
+    const teams = await TeamSchema.find({ type: type });
 
     res.status(200).json(teams);
   } catch (error) {
@@ -55,7 +75,7 @@ const getTeamByName = async (req, res) => {
   try {
     const { name } = req.query;
     const teamFound = await TeamSchema.findOne({ name: name });
-    
+
     res.status(200).json(teamFound);
   } catch (error) {
     console.error(error);
@@ -63,39 +83,55 @@ const getTeamByName = async (req, res) => {
   }
 };
 
-// PATCH/team/:id -> atualiza dados de um time
+// PATCH/team/:id -> atualiza dados de um time AUTH
 
 const updateTeam = async (req, res) => {
   try {
-    const { name, country, type } = req.body;
+    const token = auth(req, res);
 
-    const team = await TeamSchema.findByIdAndUpdate(req.params.id, {
-      name,
-      country,
-      type
+    await jwt.verify(token, SECRET, async (error) => {
+      if (error) {
+        return res.status(403).json("Invalid Token!");
+      }
+
+      const { name, country, type } = req.body;
+
+      const team = await TeamSchema.findByIdAndUpdate(req.params.id, {
+        name,
+        country,
+        type,
+      });
+
+      const updatedTeam = await TeamSchema.findById(req.params.id);
+
+      const message = `${team} updated to ${updatedTeam}`;
+      res.status(200).json({ message });
     });
-
-    const updatedTeam = await TeamSchema.findById(req.params.id);
-
-    const message = `${team} updated to ${updatedTeam}`;
-    res.status(200).json({ message });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
   }
 };
 
-// DELETE/team/:id -> exclui time por id
+// DELETE/team/:id -> exclui time por id AUTH
 
 const deleteTeam = async (req, res) => {
   try {
-    const { id } = req.params;
+    const token = auth(req, res);
 
-    const deletedTeam = await TeamSchema.findByIdAndDelete(id);
+    await jwt.verify(token, SECRET, async (error) => {
+      if (error) {
+        return res.status(403).json("Invalid Token!");
+      }
 
-    const message = `${deletedTeam} was successfully deleted`;
+      const { id } = req.params;
 
-    res.status(200).json({ message });
+      const deletedTeam = await TeamSchema.findByIdAndDelete(id);
+
+      const message = `${deletedTeam} was successfully deleted`;
+
+      res.status(200).json({ message });
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
