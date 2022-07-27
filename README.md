@@ -65,7 +65,7 @@ Como estrutura de uma partida, sugere-se:
 
 ### Rotas
 
-A documentação pode ser acessada através do [Swagger](https://tmemory.herokuapp.com/minha-rota-de-documentacao/).
+A documentação pode ser acessada através do [Swagger](https://app-assiste-elas.herokuapp.com/documentation/).
 
 - #### Início
 
@@ -126,7 +126,7 @@ A documentação pode ser acessada através do [Swagger](https://tmemory.herokua
 
 ### Contribuição
 
-- Faça um `fork` do projeto;
+- Primeiramente, para contribuir, faça um `fork` do projeto;
 
 - Copie a url do _fork_ realizado e, no _prompt de comando_ da sua máquina, realize o clone do projeto através do `git clone <link_do_fork_do_repositorio>`;
 
