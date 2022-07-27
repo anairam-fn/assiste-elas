@@ -3,101 +3,129 @@
   "info": {
     "version": "1.0.0",
     "title": "REST API",
-    "description": ""
+    "deion": ""
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "tags": ["Default"],
+        "deion": "",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "deion": "OK"
           }
         }
       }
     },
     "/team": {
       "post": {
-        "description": "",
+        "tags": ["Team"],
+        "deion": "Endpoint to create a new Team",
         "parameters": [
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "deion": "Team information",
             "schema": {
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Manchester United"
                 },
                 "country": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "England"
                 },
                 "type": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "club"
                 }
-              }
+              },
+              "required": ["name", "country", "type"]
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "deion": "Created"
+          },
+          "403": {
+            "deion": "Forbidden"
           },
           "500": {
-            "description": "Internal Server Error"
+            "deion": "Internal Server Error"
           }
         }
       }
     },
     "/teams": {
       "get": {
-        "description": "",
+        "tags": ["Team"],
+        "deion": "Endpoint to get all teams",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/teams/type": {
+      "get": {
+        "tags": ["Team"],
+        "deion": "Endpoint to get teams by type",
         "parameters": [
           {
             "name": "type",
             "in": "query",
-            "type": "string"
+            "type": "string",
+            "example": "club"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "deion": "OK"
           },
           "500": {
-            "description": "Internal Server Error"
+            "deion": "Internal Server Error"
           }
         }
       }
     },
     "/team/name": {
       "get": {
-        "description": "",
+        "tags": ["Team"],
+        "deion": "Endpoint to get a team by name",
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "type": "string"
+            "type": "string",
+            "example": "club"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "deion": "OK"
           },
           "500": {
-            "description": "Internal Server Error"
+            "deion": "Internal Server Error"
           }
         }
       }
     },
     "/team/{id}": {
       "patch": {
-        "description": "",
+        "tags": ["Team"],
+        "deion": "Endpoint to update a team",
         "parameters": [
           {
             "name": "id",
@@ -106,35 +134,44 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "deion": "Team information",
             "schema": {
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Manchester United"
                 },
                 "country": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "England"
                 },
                 "type": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "club"
                 }
-              }
+              },
+              "required": ["name", "country", "type"]
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "deion": "OK"
+          },
+          "403": {
+            "deion": "Forbidden"
           },
           "500": {
-            "description": "Internal Server Error"
+            "deion": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["Team"],
+        "deion": "",
         "parameters": [
           {
             "name": "id",
@@ -145,18 +182,152 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "deion": "OK"
+          },
+          "403": {
+            "deion": "Forbidden"
           },
           "500": {
-            "description": "Internal Server Error"
+            "deion": "Internal Server Error"
           }
         }
       }
     },
     "/match": {
       "post": {
-        "description": "",
+        "tags": ["Match"],
+        "deion": "Endpoint to create a new Match",
         "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "team1Id": {
+                  "type": "id",
+                  "example": "a team id"
+                },
+                "team2Id": {
+                  "type": "id",
+                  "example": "a team id"
+                },
+                "local": {
+                  "type": "string",
+                  "example": "Recife"
+                },
+                "date": {
+                  "type": "yyyy-mm-dd",
+                  "example": "2022-08-12"
+                },
+                "time": {
+                  "example": "14h00"
+                },
+                "type": {
+                  "example": "Champions"
+                },
+                "streaming": {
+                  "example": "Globo play"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "deion": "Created"
+          },
+          "400": {
+            "deion": "Bad Request"
+          },
+          "403": {
+            "deion": "Forbidden"
+          },
+          "404": {
+            "deion": "Not Found"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/matches": {
+      "get": {
+        "tags": ["Match"],
+        "deion": "Endpoint to get all matches",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/matches/team": {
+      "get": {
+        "tags": ["Match"],
+        "deion": "Get matches by team",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string",
+            "example": "Sport"
+          }
+        ],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "404": {
+            "deion": "Not Found"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/matches/day": {
+      "get": {
+        "tags": ["Match"],
+        "deion": "Endpoint to get matches by day",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "type": "string",
+            "example": "2022-08-12"
+          }
+        ],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "404": {
+            "deion": "Not Found"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/match/{id}": {
+      "patch": {
+        "tags": ["Match"],
+        "deion": "Endpoint to get match by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -182,6 +353,60 @@
                   "example": "any"
                 },
                 "streaming": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "403": {
+            "deion": "Forbidden"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Match"],
+        "deion": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "403": {
+            "deion": "Forbidden"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin": {
+      "post": {
+        "tags": ["Admin"],
+        "deion": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "password": {
                   "example": "any"
                 }
               }
@@ -190,117 +415,29 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "deion": "Created"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "424": {
+            "deion": "Failed Dependency"
           }
         }
       }
     },
-    "/matches": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/matches/team": {
-      "get": {
-        "description": "",
+    "/admin/login": {
+      "post": {
+        "tags": ["Admin"],
+        "deion": "",
         "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "type": "string"
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/matches/day": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "date",
-            "in": "query",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/match/{id}": {
-      "patch": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
-                "team1Id": {
+                "email": {
                   "example": "any"
                 },
-                "team2Id": {
-                  "example": "any"
-                },
-                "local": {
-                  "example": "any"
-                },
-                "date": {
-                  "example": "any"
-                },
-                "time": {
-                  "example": "any"
-                },
-                "type": {
-                  "example": "any"
-                },
-                "streaming": {
+                "password": {
                   "example": "any"
                 }
               }
@@ -309,15 +446,39 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "deion": "OK"
+          },
+          "403": {
+            "deion": "Forbidden"
+          },
+          "404": {
+            "deion": "Not Found"
           },
           "500": {
-            "description": "Internal Server Error"
+            "deion": "Internal Server Error"
           }
         }
-      },
-      "delete": {
-        "description": "",
+      }
+    },
+    "/admins": {
+      "get": {
+        "tags": ["Admin"],
+        "deion": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "500": {
+            "deion": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/{id}": {
+      "patch": {
+        "tags": ["Admin"],
+        "deion": "",
         "parameters": [
           {
             "name": "id",
@@ -328,10 +489,42 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "deion": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "403": {
+            "deion": "Forbidden"
+          },
+          "404": {
+            "deion": "Not Found"
+          },
+          "424": {
+            "deion": "Failed Dependency"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Admin"],
+        "deion": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "deion": "OK"
+          },
+          "403": {
+            "deion": "Forbidden"
+          },
+          "404": {
+            "deion": "Not Found"
+          },
+          "424": {
+            "deion": "Failed Dependency"
           }
         }
       }
