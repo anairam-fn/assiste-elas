@@ -5,14 +5,13 @@ const SECRET = process.env.SECRET;
 
 // fazer auth
 
-const auth = (req, res) => {
+const getToken = (req, res) => {
   const authHeader = req.get("authorization");
 
   if (!authHeader) {
     return res.status(401).json("Missing authorization!");
   }
   const token = authHeader.split(" ")[1];
-  console.log(token);
   return token;
 };
 
@@ -37,11 +36,19 @@ const createAdmin = (req, res) => {
 // listar admins
 
 const getAllAdmins = (req, res) => {
-  AdminSchema.find((error, admins) => {
+  const token = getToken(req, res);
+  jwt.verify(token, SECRET, (error) => {
     if (error) {
-      res.status(500).json({ message: error.message });
+      return res.status(403).json("Invalid Token!");
     }
-    res.status(200).json(admins);
+
+    AdminSchema.find((error, admins) => {
+      if (error) {
+        res.status(500).json({ message: error.message });
+      }
+    
+      res.status(200).json(admins);
+    });
   });
 };
 
@@ -72,7 +79,7 @@ const loginAdmin = (req, res) => {
 // atualizar admin
 
 const updateAdmin = (req, res) => {
-  const token = auth(req, res);
+  const token = getToken(req, res);
   jwt.verify(token, SECRET, (error) => {
     if (error) {
       return res.status(403).json("Invalid Token!");
@@ -95,7 +102,7 @@ const updateAdmin = (req, res) => {
 // deletar admin
 
 const deleteAdmin = (req, res) => {
-  const token = auth(req, res);
+  const token = getToken(req, res);
   jwt.verify(token, SECRET, (error) => {
     if (error) {
       return res.status(403).json("Invalid Token!");
