@@ -109,7 +109,7 @@
             "name": "name",
             "in": "query",
             "type": "string",
-            "example": "club"
+            "example": "Manchester United"
           }
         ],
         "responses": {
@@ -224,10 +224,10 @@
                   "example": "14h00"
                 },
                 "type": {
-                  "example": "Champions"
+                  "example": "Champions League"
                 },
                 "streaming": {
-                  "example": "Globo play"
+                  "example": "Globoplay"
                 }
               }
             }
@@ -276,7 +276,7 @@
             "name": "name",
             "in": "query",
             "type": "string",
-            "example": "Sport"
+            "example": "Manchester United"
           }
         ],
         "responses": {
@@ -406,8 +406,14 @@
             "schema": {
               "type": "object",
               "properties": {
-                "password": {
+                "name": {
                   "example": "any"
+                },
+                "email": {
+                  "example": "any@admin.com"
+                },
+                "password": {
+                  "example": "anypassword"
                 }
               }
             }
@@ -435,10 +441,10 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "example": "any@admin.com"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "anypassword"
                 }
               }
             }
