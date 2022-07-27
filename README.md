@@ -2,13 +2,13 @@
   <p align="center">Assiste Elas :soccer:<p>
 </h2>
 
+---
 <p align = "center">
 <a align href =(#-Sobre)>Sobre</a> │
 <a align href =(#-Contexto)>Contexto</a> │
 <a align href =(#-Regras)>Regras</a> │
 <a align href =(#-Documentação)>Documentação</a> │
 <a align href =(#-Tecnologias-e-Pacotes)>Tecnologias e Pacotes</a> │
-<a align href =(#-Pacotes)>Pacotes</a> │
 <a align href =(#-Contribuição)>Contribuição</a> │
 </p>
 
@@ -20,7 +20,7 @@ Projeto de conclusão do Bootcamp de Back-end da [{reprograma}](https://reprogra
 
 ### Contexto
 
-<img src="img/player.png" alt="jogadora de futebol" width ="250" align="left" padding="250"/>
+<img src="img/player.png" alt="jogadora de futebol" width ="400" align="left" padding="250"/>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Habitant morbi tristique senectus et netus et malesuada fames ac. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Mi ipsum faucibus vitae aliquet nec ullamcorper. Ipsum consequat nisl vel pretium lectus. Nisl nisi scelerisque eu ultrices vitae. Mi bibendum neque egestas congue quisque egestas diam in. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Enim nunc faucibus a pellentesque sit amet porttitor. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas. Eget dolor morbi non arcu risus quis varius quam. Mattis vulputate enim nulla aliquet. Et magnis dis parturient montes nascetur ridiculus mus. Volutpat lacus laoreet non curabitur. Odio facilisis mauris sit amet massa.
 
@@ -39,7 +39,7 @@ Et malesuada fames ac turpis egestas integer eget aliquet nibh. Leo a diam solli
 
 No projeto, são armazenados dois tipos de informações: time e partidas.
 
-Como exemplo de estrutura de um time, pode-se sugerir:
+Como exemplo de estrutura de um time, sugere-se:
 
 ```json
 {
