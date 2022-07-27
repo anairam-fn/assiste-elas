@@ -3,14 +3,13 @@
 </h2>
 
 <p align = "center">
-<a align href = (#-Sobre)>Sobre</a> │
-<a align href = (#-Contexto)>Contexto</a> │
-<a align href = (#-Regras)>Regras</a> │
-<a align href = (#-Documentação)>Documentação</a> │
-<a align href = (#-Tecnologias-e-Pacotes)>Tecnologias e Pacotes</a> │
-<a align href = (#-Pacotes)>Pacotes</a> │
-<a align href = (#-Contribuição)>Contribuição</a> │
-<a align href = (#-Autora)>Autora</a>
+<a align href =(#-Sobre)>Sobre</a> │
+<a align href =(#-Contexto)>Contexto</a> │
+<a align href =(#-Regras)>Regras</a> │
+<a align href =(#-Documentação)>Documentação</a> │
+<a align href =(#-Tecnologias-e-Pacotes)>Tecnologias e Pacotes</a> │
+<a align href =(#-Pacotes)>Pacotes</a> │
+<a align href =(#-Contribuição)>Contribuição</a> │
 </p>
 
 ---
@@ -68,13 +67,13 @@ Como estrutura de uma partida, sugere-se:
 
 A documentação pode ser acessada através do [Swagger](https://tmemory.herokuapp.com/minha-rota-de-documentacao/).
 
-- ### Início
+- #### Início
 
   | Feature | Autenticação | Método | Rota |
   | ------- | ------------ | ------ | ---- |
   | Default | :x:          | GET    | `/`  |
 
-- ### Times
+- #### Times
 
   | Feature                                      | Autenticação       | Método | Rota          |
   | -------------------------------------------- | ------------------ | ------ | ------------- |
@@ -85,7 +84,7 @@ A documentação pode ser acessada através do [Swagger](https://tmemory.herokua
   | Atualizar informações de um time             | :heavy_check_mark: | PATCH  | `/team/{:id}` |
   | Deletar time                                 | :heavy_check_mark: | DELETE | `/team/{:id}` |
 
-- ### Partidas
+- #### Partidas
 
   | Feature                                   | Autenticação       | Método | Rota               |
   | ----------------------------------------- | ------------------ | ------ | ------------------ |
@@ -96,7 +95,7 @@ A documentação pode ser acessada através do [Swagger](https://tmemory.herokua
   | Atualizar dados de um partida             | :heavy_check_mark: | PATCH  | `/match/:id`       |
   | Deletar uma partida                       | :heavy_check_mark: | DELETE | `/culinaria/{:id}` |
 
-- ### Administradora
+- #### Administradoras
   | Feature                               | Autenticação       | Método | Rota           |
   | ------------------------------------- | ------------------ | ------ | -------------- |
   | Cria usuária                          | :heavy_check_mark: | POST   | `/admin`       |
@@ -144,8 +143,6 @@ A documentação pode ser acessada através do [Swagger](https://tmemory.herokua
 - Para subir o projeto no seu GitHub, basta executar o comando `git push origin feature/<sua_branch>`;
 
 - E finalize criando um novo _Pull Request_ com as contribuições para o projeto original. :heart:
-
-### Autora
 
 <h5 align="center">
 <p align="center">Projeto desenvolvido por <a href="https://www.linkedin.com/in/mariana-nunes98/">Mariana Nunes</a>.</p>
