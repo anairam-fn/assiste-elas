@@ -1,6 +1,6 @@
-<h3 align="center">
+<h2 align="center">
   <p align="center">Assiste Elas :soccer:<p>
-</h3>
+</h2>
 
 <p align = "center">
 <a align href = (#-Sobre)>Sobre</a> │
