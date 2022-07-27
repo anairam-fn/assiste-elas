@@ -1,10 +1,9 @@
 const MatchSchema = require("../models/matchModel");
 const TeamSchema = require("../models/teamModel");
-const moment = require("moment");
 const jwt = require("jsonwebtoken");
 const SECRET = process.env.SECRET;
 
-const auth = (req, res) => {
+const getToken = (req, res) => {
   const authHeader = req.get("authorization");
 
   if (!authHeader) {
@@ -18,7 +17,7 @@ const auth = (req, res) => {
 
 const createMatch = async (req, res) => {
   try {
-    const token = auth(req, res);
+    const token = getToken(req, res);
 
     await jwt.verify(token, SECRET, async (error) => {
       if (error) {
@@ -106,13 +105,9 @@ const matchesByDay = async (req, res) => {
   try {
     const { date } = req.query;
 
-    const match = await MatchSchema.find({ date: date });
+    const match = await MatchSchema.find({ date }).exec();
 
-    const matchFound = match.filter(
-      (match) => moment(match.date).add(1, "days").format("YYYY-MM-DD") == date
-    );
-
-    if (!matchFound.length) {
+    if (!match.length) {
       return res
         .status(404)
         .json({ message: "There are no matches that day!" });
@@ -129,7 +124,7 @@ const matchesByDay = async (req, res) => {
 
 const updateMatch = async (req, res) => {
   try {
-    const token = auth(req, res);
+    const token = getToken(req, res);
 
     await jwt.verify(token, SECRET, async (error) => {
       if (error) {
@@ -165,7 +160,7 @@ const updateMatch = async (req, res) => {
 
 const deleteMatch = async (req, res) => {
   try {
-    const token = auth(req, res);
+    const token = getToken(req, res);
 
     await jwt.verify(token, SECRET, async (error) => {
       if (error) {

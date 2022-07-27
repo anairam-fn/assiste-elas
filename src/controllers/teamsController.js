@@ -2,7 +2,7 @@ const TeamSchema = require("../models/teamModel");
 const jwt = require("jsonwebtoken");
 const SECRET = process.env.SECRET;
 
-const auth = (req, res) => {
+const getToken = (req, res) => {
   const authHeader = req.get("authorization");
 
   if (!authHeader) {
@@ -16,7 +16,7 @@ const auth = (req, res) => {
 
 const createTeam = async (req, res) => {
   try {
-    const token = auth(req, res);
+    const token = getToken(req, res);
 
     await jwt.verify(token, SECRET, async (error) => {
       if (error) {
@@ -87,7 +87,7 @@ const getTeamByName = async (req, res) => {
 
 const updateTeam = async (req, res) => {
   try {
-    const token = auth(req, res);
+    const token = getToken(req, res);
 
     await jwt.verify(token, SECRET, async (error) => {
       if (error) {
@@ -117,7 +117,7 @@ const updateTeam = async (req, res) => {
 
 const deleteTeam = async (req, res) => {
   try {
-    const token = auth(req, res);
+    const token = getToken(req, res);
 
     await jwt.verify(token, SECRET, async (error) => {
       if (error) {
