@@ -2,7 +2,6 @@
   <p align="center">Assiste Elas :soccer:<p>
 </h3>
 
-
 <p align = "center">
 <a align href = (#-Sobre)>Sobre</a> │
 <a align href = (#-Contexto)>Contexto</a> │
@@ -45,9 +44,9 @@ Como exemplo de estrutura de um time, pode-se sugerir:
 
 ```json
 {
-"name": "Palmeiras",
-"country": "Brazil",
-"type": "Club",
+  "name": "Palmeiras",
+  "country": "Brazil",
+  "type": "Club"
 }
 ```
 
@@ -69,35 +68,35 @@ Como estrutura de uma partida, sugere-se:
 
 A documentação pode ser acessada através do [Swagger](https://tmemory.herokuapp.com/minha-rota-de-documentacao/).
 
-  * ### Início 
-  | Feature     | Autenticação | Método | Rota |
-  | ----------- | ------------ | ------ | ---- |
-  | Default     | :x:          | GET    | `/`  |
+- ### Início
 
+  | Feature | Autenticação | Método | Rota |
+  | ------- | ------------ | ------ | ---- |
+  | Default | :x:          | GET    | `/`  |
 
-  * ### Times
-  | Feature                                      | Autenticação       | Método | Rota               |
-  | -------------------------------------------- | ------------------ | ------ | -------------------|
-  | Criar time                                   | :heavy_check_mark: | POST   | `/team`            |
-  | Visualizar todos os times                    | :x:                | GET    | `/teams`           |
-  | Visualizar times por tipo (clube ou seleção) | :x:                | GET    | `/teams/type`      |
-  | Visualizar time por nome                     | :x:                | GET    | `/team/name`       |
-  | Atualizar informações de um time             | :heavy_check_mark: | PATCH  | `/team/{:id}`      |
-  | Deletar time                                 | :heavy_check_mark: | DELETE | `/team/{:id}`      |
+- ### Times
 
+  | Feature                                      | Autenticação       | Método | Rota          |
+  | -------------------------------------------- | ------------------ | ------ | ------------- |
+  | Criar time                                   | :heavy_check_mark: | POST   | `/team`       |
+  | Visualizar todos os times                    | :x:                | GET    | `/teams`      |
+  | Visualizar times por tipo (clube ou seleção) | :x:                | GET    | `/teams/type` |
+  | Visualizar time por nome                     | :x:                | GET    | `/team/name`  |
+  | Atualizar informações de um time             | :heavy_check_mark: | PATCH  | `/team/{:id}` |
+  | Deletar time                                 | :heavy_check_mark: | DELETE | `/team/{:id}` |
 
-  * ### Partidas
-  | Feature                                   | Autenticação       | Método | Rota                 |
-  | ----------------------------------------- | ------------------ | ------ | ---------------------|
-  | Criar partida                             | :heavy_check_mark: | POST   | `/match`             |
-  | Visualizar todas as partidas              | :x:                | GET    | `/matches`           |
-  | Visualizar partidas de um time específico | :x:                | GET    | `/matches/team`      |
-  | Visualizar partidas de um dia específico  | :x:                | GET    | `/matches/day`       |
-  | Atualizar dados de um partida             | :heavy_check_mark: | PATCH  | `/match/:id`         |
-  | Deletar uma partida                       | :heavy_check_mark: | DELETE | `/culinaria/{:id}`   |
+- ### Partidas
 
+  | Feature                                   | Autenticação       | Método | Rota               |
+  | ----------------------------------------- | ------------------ | ------ | ------------------ |
+  | Criar partida                             | :heavy_check_mark: | POST   | `/match`           |
+  | Visualizar todas as partidas              | :x:                | GET    | `/matches`         |
+  | Visualizar partidas de um time específico | :x:                | GET    | `/matches/team`    |
+  | Visualizar partidas de um dia específico  | :x:                | GET    | `/matches/day`     |
+  | Atualizar dados de um partida             | :heavy_check_mark: | PATCH  | `/match/:id`       |
+  | Deletar uma partida                       | :heavy_check_mark: | DELETE | `/culinaria/{:id}` |
 
-  * ### Administradora
+- ### Administradora
   | Feature                               | Autenticação       | Método | Rota           |
   | ------------------------------------- | ------------------ | ------ | -------------- |
   | Cria usuária                          | :heavy_check_mark: | POST   | `/admin`       |
@@ -105,7 +104,6 @@ A documentação pode ser acessada através do [Swagger](https://tmemory.herokua
   | Visualizar todas as administradoras   | :heavy_check_mark: | GET    | `/admins`      |
   | Atualizar dados de uma administradora | :heavy_check_mark: | PATCH  | `/admin/:id`   |
   | Deletar uma administradora            | :heavy_check_mark: | DELETE | `/admin/:id`   |
-  
 
 ### Tecnologias e Pacotes
 
@@ -150,5 +148,5 @@ A documentação pode ser acessada através do [Swagger](https://tmemory.herokua
 ### Autora
 
 <h5 align="center">
-<p align="center">Projeto desenvolvido por [Mariana Nunes](https://www.linkedin.com/in/mariana-nunes98/).<p>
+<p align="center">Projeto desenvolvido por <a href="https://www.linkedin.com/in/mariana-nunes98/">Mariana Nunes</a>.</p>
 </h5>
