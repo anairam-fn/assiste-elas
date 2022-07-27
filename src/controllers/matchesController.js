@@ -30,6 +30,10 @@ const createMatch = async (req, res) => {
         return res.status(400).json({ message: "Teams IDs are required!" });
       }
 
+      if (!team1Id === !team2Id) {
+        return res.status(400).json({ message: "The IDs entered are the same!"})
+      }
+
       const findTeam1 = await TeamSchema.findById(team1Id);
       const findTeam2 = await TeamSchema.findById(team2Id);
 
