@@ -466,21 +466,6 @@
         }
       }
     },
-    "/admins": {
-      "get": {
-        "tags": ["Admin"],
-        "deion": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "deion": "OK"
-          },
-          "500": {
-            "deion": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/admin/{id}": {
       "patch": {
         "tags": ["Admin"],
