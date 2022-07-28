@@ -13,6 +13,7 @@ describe("Teams Test", () => {
       })
       .end((error, res) => {
         if (error) return done(error);
+        idAdmin = res.body._id;
         return done();
       });
   });
@@ -22,7 +23,7 @@ describe("Teams Test", () => {
       .post("/admin/login")
       .send({
         email: "teste@admin.com",
-        password: "azul",
+        password: "amarelinha",
       })
       .expect((res) => {
         token = res.body.token;
@@ -71,8 +72,8 @@ describe("Teams Test", () => {
 
   test("Delete Team", (done) => {
     request(app)
-      .delete(`/team/${elementId}`).set("Authorization", `Bearer ${token}`)
-      .expect("Content-Type", /json/)
+      .delete(`/team/${elementId}`)
+      .set("Authorization", `Bearer ${token}`)
       .expect(200)
       .expect((res) => {
         expect(res.body.message).toBeDefined();

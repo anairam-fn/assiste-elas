@@ -9,7 +9,7 @@ describe("Matches Test", () => {
       .post("/admin/login")
       .send({
         email: "teste@admin.com",
-        password: "azul",
+        password: "amarelinha",
       })
       .expect((res) => {
         token = res.body.token;
@@ -56,35 +56,33 @@ describe("Matches Test", () => {
       });
   });
 
-  // test("Get Match By Team", (done) => {
-  //   request(app)
-  //     .get("/matches/team")
-  //     .set("Authorization", `Bearer ${token}`)
-  //     .query({ name: "Brazil" })
-  //     .expect(200)
-  //     .expect((res) => {
-  //       expect(res.body.length).not.toBe(0);
-  //     })
-  //     .end((error, res) => {
-  //       if (error) return done(error);
-  //       return done();
-  //     });
-  // });
+  test("Get Match By Team", (done) => {
+    request(app)
+      .get("/matches/team")
+      .query({ name: "Brazil" })
+      .expect(200)
+      .expect((res) => {
+        expect(res.body.length).not.toBe(0);
+      })
+      .end((error, res) => {
+        if (error) return done(error);
+        return done();
+      });
+  });
 
-  // test("Get Match By Day", (done) => {
-  //   request(app)
-  //     .get("/matches/day")
-  //     .set("Authorization", `Bearer ${token}`)
-  //     .query({ date: 2022-07-30 })
-  //     .expect(200)
-  //     .expect((res) => {
-  //       expect(res.body.length).not.toBe(0);
-  //     })
-  //     .end((error, res) => {
-  //       if (error) return done(error);
-  //       return done();
-  //     });
-  // });
+  test("Get Match By Day", (done) => {
+    request(app)
+      .get("/matches/day")
+      .query({ date: "2022-07-30" })
+      .expect(200)
+      .expect((res) => {
+        expect(res.body.length).not.toBe(0);
+      })
+      .end((error, res) => {
+        if (error) return done(error);
+        return done();
+      });
+  });
 
   test("Patch Match", (done) => {
     request(app)
@@ -106,7 +104,6 @@ describe("Matches Test", () => {
     request(app)
       .delete(`/match/${elementId}`)
       .set("Authorization", `Bearer ${token}`)
-      .expect("Content-Type", /json/)
       .expect(200)
       .expect((res) => {
         expect(res.body.message).toBeDefined();
