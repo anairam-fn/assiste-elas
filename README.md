@@ -22,9 +22,15 @@ Projeto de conclusão do Bootcamp de Back-end da [{reprograma}](https://reprogra
 
 <img src="img/player.png" alt="jogadora de futebol" width ="400" align="left" padding="250"/>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Habitant morbi tristique senectus et netus et malesuada fames ac. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Mi ipsum faucibus vitae aliquet nec ullamcorper. Ipsum consequat nisl vel pretium lectus. Nisl nisi scelerisque eu ultrices vitae. Mi bibendum neque egestas congue quisque egestas diam in. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Enim nunc faucibus a pellentesque sit amet porttitor. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas. Eget dolor morbi non arcu risus quis varius quam. Mattis vulputate enim nulla aliquet. Et magnis dis parturient montes nascetur ridiculus mus. Volutpat lacus laoreet non curabitur. Odio facilisis mauris sit amet massa.
+  Durante muito tempo o preconceito e a falta de interesse fez com que o futebol feminino passasse anos invisível para a sociedade, com pouca torcida, sem patrocínios e com escassos registros.
+  Contudo, com a projeção da internet, conseguimos perceber a ascensão da modalidade que conseguiu dinamizar os meios de comunicação e diminuir a dependência dos grandes veículos.
+  Atualmente, todas as partidas do Campeonato Brasileiro das séries A1, A2 e A3 são transmitidas, por canais de TV aberta e fechada, ou pela internet. Aumentando, assim, o alcance do futebol feminino para o público brasileiro. No entanto, ainda observamos certa dificuldade para a divulgação dessas partidas.
+  Nesse sentido, o projeto **Assiste Elas** foi criado para propagar o futebol feminino através de uma aplicação que permite a usuária a visualização de partidas a serem realizadas (onde acontecerão e onde poderão ser assistidas), ou, se desejar, pesquisar pelas partidas de seu time preferido de uma forma simples. Assim, o objetivo é aumentar dos índices de visualizações para que, futuramente, possamos equiparar as condições do futebol feminino com as do futebol masculino.
 
-Et malesuada fames ac turpis egestas integer eget aliquet nibh. Leo a diam sollicitudin tempor id eu nisl nunc. Vel pretium lectus quam id leo. Sit amet risus nullam eget felis. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Id leo in vitae turpis massa sed elementum. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis. Mi tempus imperdiet nulla malesuada pellentesque elit. Mattis molestie a iaculis at erat pellentesque adipiscing. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Et ultrices neque ornare aenean euismod elementum.
+  Para mais conteúdos sobre o futebol feminino:
+  * [Dibradoras](https://dibradoras.com.br)
+  * [Joga-pra-Elas](https://www.instagram.com/jogapraelas/)
+
 
 ### Regras
 
@@ -100,7 +106,6 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
   | ------------------------------------- | ------------------ | ------ | -------------- |
   | Cria usuária                          | :heavy_check_mark: | POST   | `/admin`       |
   | Fazer login                           | :x:                | POST   | `/admin/login` |
-  | Visualizar todas as administradoras   | :heavy_check_mark: | GET    | `/admins`      |
   | Atualizar dados de uma administradora | :heavy_check_mark: | PATCH  | `/admin/:id`   |
   | Deletar uma administradora            | :heavy_check_mark: | DELETE | `/admin/:id`   |
 
