@@ -4,7 +4,7 @@
 
 ---
 <p align = "center">
-<a align href =(#-Sobre)>Sobre</a> │
+<a align href =#Sobre>Sobre</a> │
 <a align href =(#-Contexto)>Contexto</a> │
 <a align href =(#-Regras)>Regras</a> │
 <a align href =(#-Documentação)>Documentação</a> │
@@ -115,8 +115,8 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
 ### Tecnologias e Pacotes
 
 - Git;
-- Mongo Atlas
-- Heroku
+- Mongo Atlas;
+- Heroku;
 - Node.js;
 - MongoDB;
 - express (4.18.1);
@@ -151,6 +151,8 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
 - Para subir o projeto no seu GitHub, basta executar o comando `git push origin feature/<sua_branch>`;
 
 - E finalize criando um novo _Pull Request_ com as contribuições para o projeto original. :heart:
+
+---
 
 <h5 align="center">
 <p align="center">Projeto desenvolvido por <a href="https://www.linkedin.com/in/mariana-nunes98/">Mariana Nunes</a>.</p>
