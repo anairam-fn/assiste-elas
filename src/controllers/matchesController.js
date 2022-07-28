@@ -29,8 +29,8 @@ const createMatch = async (req, res) => {
       if (!team1Id || !team2Id) {
         return res.status(400).json({ message: "Teams IDs are required!" });
       }
-
-      if (!team1Id === !team2Id) {
+      
+      if (team1Id === team2Id) {
         return res.status(400).json({ message: "The IDs entered are the same!"})
       }
 
@@ -175,7 +175,7 @@ const deleteMatch = async (req, res) => {
 
       const deletedMatch = await MatchSchema.findByIdAndDelete(id);
 
-      const message = `${deletedMatch} was successfully deleted`;
+      const message = `Match ${deletedMatch._id} was successfully deleted!`;
 
       res.status(200).json({ message });
     });

@@ -104,8 +104,7 @@ const updateTeam = async (req, res) => {
 
       const updatedTeam = await TeamSchema.findById(req.params.id);
 
-      const message = `${team} updated to ${updatedTeam}`;
-      res.status(200).json({ message });
+      res.status(200).json(updatedTeam);
     });
   } catch (error) {
     console.error(error);
@@ -128,7 +127,7 @@ const deleteTeam = async (req, res) => {
 
       const deletedTeam = await TeamSchema.findByIdAndDelete(id);
 
-      const message = `${deletedTeam} was successfully deleted`;
+      const message = `Team ${deletedTeam._id} was successfully deleted`;
 
       res.status(200).json({ message });
     });
