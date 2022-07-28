@@ -88,8 +88,8 @@ const getMatchByTeam = async (req, res) => {
 
     const teamFound = await matchesPopulated.filter(
       (match) =>
-        match.team1.name.toLowerCase() === name ||
-        match.team2.name.toLowerCase() === name
+        match.team1.name.toLowerCase() === name.toLowerCase() ||
+        match.team2.name.toLowerCase() === name.toLowerCase()
     );
 
     if (!teamFound.length) {
