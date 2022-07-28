@@ -33,25 +33,6 @@ const createAdmin = (req, res) => {
   });
 };
 
-// listar admins
-
-const getAllAdmins = (req, res) => {
-  const token = getToken(req, res);
-  jwt.verify(token, SECRET, (error) => {
-    if (error) {
-      return res.status(403).json("Invalid Token!");
-    }
-
-    AdminSchema.find((error, admins) => {
-      if (error) {
-        res.status(500).json({ message: error.message });
-      }
-    
-      res.status(200).json(admins);
-    });
-  });
-};
-
 // fazer login
 
 const loginAdmin = (req, res) => {
@@ -123,7 +104,6 @@ const deleteAdmin = (req, res) => {
 
 module.exports = {
   createAdmin,
-  getAllAdmins,
   loginAdmin,
   updateAdmin,
   deleteAdmin,
