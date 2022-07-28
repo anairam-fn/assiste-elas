@@ -22,10 +22,13 @@ Projeto de conclusão do Bootcamp de Back-end da [{reprograma}](https://reprogra
 
 <img src="img/player.png" alt="jogadora de futebol" width ="400" align="left" padding="250"/>
 
-  Durante muito tempo o preconceito e a falta de interesse fez com que o futebol feminino passasse anos invisível para a sociedade, com pouca torcida, sem patrocínios e com escassos registros.
-  Contudo, com a projeção da internet, conseguimos perceber a ascensão da modalidade que conseguiu dinamizar os meios de comunicação e diminuir a dependência dos grandes veículos.
-  Atualmente, todas as partidas do Campeonato Brasileiro das séries A1, A2 e A3 são transmitidas, por canais de TV aberta e fechada, ou pela internet. Aumentando, assim, o alcance do futebol feminino para o público brasileiro. No entanto, ainda observamos certa dificuldade para a divulgação dessas partidas.
-  Nesse sentido, o projeto **Assiste Elas** foi criado para propagar o futebol feminino através de uma aplicação que permite a usuária a visualização de partidas a serem realizadas (onde acontecerão e onde poderão ser assistidas), ou, se desejar, pesquisar pelas partidas de seu time preferido de uma forma simples. Assim, o objetivo é aumentar dos índices de visualizações para que, futuramente, possamos equiparar as condições do futebol feminino com as do futebol masculino.
+Durante muito tempo o preconceito e a falta de interesse fez com que o futebol feminino passasse anos invisível para a sociedade, com pouca torcida, sem patrocínios e com escassos registros.
+
+Contudo, com a projeção da internet, conseguimos perceber a ascensão da modalidade que conseguiu dinamizar os meios de comunicação e diminuir a dependência dos grandes veículos.
+  
+Atualmente, todas as partidas do Campeonato Brasileiro das séries A1, A2 e A3 são transmitidas, por canais de TV aberta e fechada, ou pela internet. Aumentando, assim, o alcance do futebol feminino para o público brasileiro. No entanto, ainda observamos certa dificuldade para a divulgação dessas partidas.
+
+Nesse sentido, o projeto **Assiste Elas** foi criado para propagar o futebol feminino através de uma aplicação que permite a usuária a visualização de partidas a serem realizadas (onde acontecerão e onde poderão ser assistidas), ou, se desejar, pesquisar pelas partidas de seu time preferido de uma forma simples. Assim, o objetivo é aumentar dos índices de visualizações para que, futuramente, possamos equiparar as condições do futebol feminino com as do futebol masculino.
 
   Para mais conteúdos sobre o futebol feminino:
   * [Dibradoras](https://dibradoras.com.br)
