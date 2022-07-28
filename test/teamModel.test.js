@@ -2,7 +2,6 @@ const Team = require("../src/models/teamModel");
 
 describe("Team Model Test", () => {
   const team = new Team({
-    _id: 1,
     name: "Náutico",
     country: "Brazil",
     type: "Club",
@@ -20,7 +19,7 @@ describe("Team Model Test", () => {
 
   test("Must delete the new team", () => {
     team.deleteOne({ _id: team._id }).then((err, res) => {
-      expect(res.message).toBe(`${team} was successfully deleted`);
+      expect(res.message).toBe(`Team ${deletedTeam._id} was successfully deleted`);
     });
   });
 });
