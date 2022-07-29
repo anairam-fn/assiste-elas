@@ -72,7 +72,7 @@ Como estrutura de uma partida, sugere-se:
 
 #### Rotas
 
-A documentação pode ser acessada através do [Swagger](https://app-assiste-elas.herokuapp.com/documentation/).
+<p id:"Documentação">A documentação pode ser acessada através do [Swagger](https://app-assiste-elas.herokuapp.com/documentation/).</p>
 
 - #### Início
 
