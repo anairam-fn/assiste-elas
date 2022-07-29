@@ -2,7 +2,7 @@
   <p align="center">Assiste Elas :soccer:<p>
 </h2>
 
----
+
 <p align = "center">
 <a align href ="#Sobre">Sobre</a> │
 <a align href ="#Contexto">Contexto</a> │
@@ -12,7 +12,7 @@
 <a align href ="#Contribuição">Contribuição</a> │
 </p>
 
-<a id="Sobre">Sobre</a>
+<h3 id="Sobre">Sobre</h3>
 
 Projeto de conclusão do Bootcamp de Back-end da [{reprograma}](https://reprograma.com.br/). O projeto objetiva realizar a propagação do futebol feminino através da reunião de informações sobre times e partidas que irão acontecer.
 
@@ -33,7 +33,7 @@ Nesse sentido, o projeto **Assiste Elas** foi criado para propagar o futebol fem
   * [Joga-pra-Elas](https://www.instagram.com/jogapraelas/)
 
 
-<a id="Regras">Regras</a>
+<h3 id="Regras">Regras</h3>
 
 <p>As demandas do negócio são:
 
@@ -70,7 +70,7 @@ Como estrutura de uma partida, sugere-se:
 }
 ```
 
-### Rotas
+#### Rotas
 
 A documentação pode ser acessada através do [Swagger](https://app-assiste-elas.herokuapp.com/documentation/).
 
@@ -110,7 +110,7 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
   | Atualizar dados de uma administradora | :heavy_check_mark: | PATCH  | `/admin/:id`   |
   | Deletar uma administradora            | :heavy_check_mark: | DELETE | `/admin/:id`   |
 
-<a id="Tecnologias">Tecnologias e Pacotes</a>
+<h3 id="Tecnologias">Tecnologias e Pacotes</h3>
 
 - Git;
 - Mongo Atlas;
@@ -130,7 +130,7 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
 - jest (28.1.0);
 - supertest (6.2.4);
 
-<a id="Contribuição">Contribuição</a>
+<h3 id="Contribuição">Contribuição</h3>
 
 - Primeiramente, para contribuir, faça um `fork` do projeto;
 
