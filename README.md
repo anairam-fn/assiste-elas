@@ -42,7 +42,7 @@ Nesse sentido, o projeto **Assiste Elas** foi criado para propagar o futebol fem
 - [x] Qualquer pessoa pode **visualizar** as informações sobre times e partidas;
 </p>
 
-#### Informações
+### Informações
 
 No projeto, são armazenados dois tipos de informações: time e partidas.
 
@@ -73,6 +73,8 @@ Como estrutura de uma partida, sugere-se:
 <h3 id="Documentação">Documentação</h3>
 
 A documentação pode ser acessada através do [Swagger](https://app-assiste-elas.herokuapp.com/documentation/).
+
+### Rotas
 
 - #### Início
 
