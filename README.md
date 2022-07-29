@@ -4,21 +4,19 @@
 
 ---
 <p align = "center">
-<a align href =#Sobre>Sobre</a> │
-<a align href =(#-Contexto)>Contexto</a> │
-<a align href =(#-Regras)>Regras</a> │
-<a align href =(#-Documentação)>Documentação</a> │
-<a align href =(#-Tecnologias-e-Pacotes)>Tecnologias e Pacotes</a> │
-<a align href =(#-Contribuição)>Contribuição</a> │
+<a align href ="#Sobre">Sobre</a> │
+<a align href ="#Contexto">Contexto</a> │
+<a align href ="#Regras">Regras</a> │
+<a align href ="#Documentação">Documentação</a> │
+<a align href ="#Tecnologias">Tecnologias e Pacotes</a> │
+<a align href ="#Contribuição">Contribuição</a> │
 </p>
 
----
-
-### Sobre
+<a id="Sobre">Sobre</a>
 
 Projeto de conclusão do Bootcamp de Back-end da [{reprograma}](https://reprograma.com.br/). O projeto objetiva realizar a propagação do futebol feminino através da reunião de informações sobre times e partidas que irão acontecer.
 
-### Contexto
+<a id="Contexto">Contexto</a>
 
 <img src="img/player.png" alt="jogadora de futebol" width ="400" align="left" padding="250"/>
 
@@ -35,7 +33,7 @@ Nesse sentido, o projeto **Assiste Elas** foi criado para propagar o futebol fem
   * [Joga-pra-Elas](https://www.instagram.com/jogapraelas/)
 
 
-### Regras
+<a id="Regras">Regras</a>
 
 <p>As demandas do negócio são:
 
@@ -112,7 +110,7 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
   | Atualizar dados de uma administradora | :heavy_check_mark: | PATCH  | `/admin/:id`   |
   | Deletar uma administradora            | :heavy_check_mark: | DELETE | `/admin/:id`   |
 
-### Tecnologias e Pacotes
+<a id="Tecnologias">Tecnologias e Pacotes</a>
 
 - Git;
 - Mongo Atlas;
@@ -132,7 +130,7 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
 - jest (28.1.0);
 - supertest (6.2.4);
 
-### Contribuição
+<a id="Contribuição">Contribuição</a>
 
 - Primeiramente, para contribuir, faça um `fork` do projeto;
 
