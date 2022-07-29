@@ -70,9 +70,9 @@ Como estrutura de uma partida, sugere-se:
 }
 ```
 
-#### Rotas
+<h3 id="Documentação">Documentação</h3>
 
-<p id:"Documentação">A documentação pode ser acessada através do [Swagger](https://app-assiste-elas.herokuapp.com/documentation/).</p>
+A documentação pode ser acessada através do [Swagger](https://app-assiste-elas.herokuapp.com/documentation/).
 
 - #### Início
 
