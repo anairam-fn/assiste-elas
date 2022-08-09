@@ -102,7 +102,7 @@ A documentação pode ser acessada através do [Swagger](https://app-assiste-ela
   | Visualizar partidas de um time específico | :x:                | GET    | `/matches/team`    |
   | Visualizar partidas de um dia específico  | :x:                | GET    | `/matches/day`     |
   | Atualizar dados de um partida             | :heavy_check_mark: | PATCH  | `/match/:id`       |
-  | Deletar uma partida                       | :heavy_check_mark: | DELETE | `/culinaria/{:id}` |
+  | Deletar uma partida                       | :heavy_check_mark: | DELETE | `/match/{:id}` |
 
 - #### Administradoras
   | Feature                               | Autenticação       | Método | Rota           |
